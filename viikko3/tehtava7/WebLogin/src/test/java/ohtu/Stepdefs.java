@@ -87,6 +87,18 @@ public class Stepdefs {
         pageHasContent("Create username and give password");
     }    
 
+    @Given("user with username {string} with password {string} is successfully created")
+    public void newUserIsCreated(String username, String password) {
+        newUserIsSelected();
+        validUsernameAndPasswordAreGiven(username, password);
+    }
+
+    @Given("user with username {string} and password {string} is tried to be created")
+    public void newUserIsTriedToBeCreated(String username, String password) {
+        newUserIsSelected();
+        newUserWith(username, password, password);
+    }
+
     @After
     public void tearDown(){
         driver.quit();
