@@ -7,9 +7,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Main {
 
     public static void main(String[] args) {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-
-        Kauppa kauppa = ctx.getBean(Kauppa.class);
+        Kirjanpito kirjanpito = new Kirjanpito();
+        Pankki pankki = new Pankki(kirjanpito);
+        Varasto varasto = new Varasto(kirjanpito);
+        Kauppa kauppa = new Kauppa(varasto, pankki, new Viitegeneraattori());
 
 
         // kauppa hoitaa yhden asiakkaan kerrallaan seuraavaan tapaan:
