@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.13'
+}
+
+application {
+    mainClass = 'statistics.Main'
+}
